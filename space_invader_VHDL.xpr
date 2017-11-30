@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
 <Project Version="7" Minor="32" Path="D:/GitHub/space_invaders_VHDL/space_invader_VHDL.xpr">
-  <DefaultLaunch Dir="$PRUNDIR"/>
+  <DefaultLaunch Dir="D:/ProjetVhdl/tempfiles_space_invader"/>
   <Configuration>
     <Option Name="Id" Val="573a2cc597df4435b2ae88ff58938963"/>
     <Option Name="Part" Val="xc7a100tcsg324-1"/>
