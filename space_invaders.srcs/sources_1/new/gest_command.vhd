@@ -36,7 +36,10 @@ entity gest_command is
            reset : in STD_LOGIC;
            left : in STD_LOGIC;
            right : in STD_LOGIC;
-           x_offset : out STD_LOGIC_VECTOR (7 downto 0));
+           shot : in STD_LOGIC;
+           enable_shot : in STD_LOGIC;
+           x_offset : out STD_LOGIC_VECTOR (7 downto 0);
+           launch_shot : out STD_LOGIC);
 end gest_command;
 
 architecture Behavioral of gest_command is
@@ -63,6 +66,23 @@ mouvement : process(clk)
             end if;
         end if;
     end process mouvement;
+    
+    shot_process : process(clk)
+    begin
+        if (rising_edge(clk)) then
+            if reset = '0' then
+                launch_shot <= '0';
+            elsif shot = '1' then
+                if enable_shot ='1' then
+                    launch_shot <= '1';
+                else
+                    launch_shot <= '0';
+                end if;
+            else
+                launch_shot <= '0';
+            end if;
+        end if;
+    end process shot_process;
 
 x_offset <= STD_LOGIC_VECTOR(offset_x);
 

@@ -35,10 +35,8 @@ entity gest_ennemis is
     Port ( clk : in STD_LOGIC;
            clk_e : in STD_LOGIC;
            reset : in STD_LOGIC;
-           speed : in STD_LOGIC;
            x_offset_e : out STD_LOGIC_VECTOR (7 downto 0);
            y_offset_e : out STD_LOGIC_VECTOR (6 downto 0);
-           game_over : out STD_LOGIC);
 end gest_ennemis;
 
 architecture Behavioral of gest_ennemis is
@@ -66,8 +64,6 @@ begin
                 offset_y <= offset_y + 5;
                 droite <= true;
                 gauche <= false;
-            elsif offset_y = 50 then
-                game_over <= '1';
             elsif (offset_x /= 0 and gauche = true) then
                 offset_x <= offset_x - 1;
             elsif (offset_x /= 20 and droite = true) then
