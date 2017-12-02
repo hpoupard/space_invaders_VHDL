@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Wed Nov 22 10:49:37 2017
+# Process ID: 8224
+# Current directory: C:/Users/hpoup/Desktop/space_invaders/space_invaders.runs/impl_2
+# Command line: vivado.exe -log top_module.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top_module.tcl -notrace
+# Log file: C:/Users/hpoup/Desktop/space_invaders/space_invaders.runs/impl_2/top_module.vdi
+# Journal file: C:/Users/hpoup/Desktop/space_invaders/space_invaders.runs/impl_2\vivado.jou
+#-----------------------------------------------------------
+source top_module.tcl -notrace

@@ -1,0 +1,35 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Wed Nov 29 18:31:30 2017
+# Process ID: 11600
+# Current directory: C:/Users/hpoup/Desktop/space_invaders
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10004 C:\Users\hpoup\Desktop\space_invaders\space_invaders.xpr
+# Log file: C:/Users/hpoup/Desktop/space_invaders/vivado.log
+# Journal file: C:/Users/hpoup/Desktop/space_invaders\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/hpoup/Desktop/space_invaders/space_invaders.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source clk_ennemis.tcl
+add_force {/clk_ennemis/clk} -radix hex {0 0ns} {1 5000ps} -repeat_every 10000ps
+add_force {/clk_ennemis/reset} -radix hex {0 0ns}
+add_force {/clk_ennemis/increase} -radix hex {0 0ns}
+run 200 ns
+add_force {/clk_ennemis/reset} -radix hex {1 0ns}
+run 45 ms
+add_force {/clk_ennemis/increase} -radix hex {1 0ns}
+run 190 ns
+add_force {/clk_ennemis/increase} -radix hex {0 0ns}
+run 30 ms
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top top_module [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+synth_design -rtl -name rtl_1
+close_sim
