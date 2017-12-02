@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="20" Path="C:/Users/hpoup/Desktop/space_invaders/space_invaders.xpr">
+<Project Version="7" Minor="20" Path="C:/Users/hpoup/Desktop/space_invaders_VHDL/space_invaders/space_invaders.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="1c9be8947fed48fbb9834cec896d2dd0"/>
@@ -159,6 +159,13 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/gestion_tir.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/game_fsm.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
