@@ -2,10 +2,10 @@ library IEEE;
 use IEEE.Std_logic_1164.all;
 use IEEE.Numeric_Std.all;
 
-entity cmp_x_y_tb is
+entity tb_cmp_x_y is
 end;
 
-architecture bench of cmp_x_y_tb is
+architecture bench of tb_cmp_x_y is
 
   component cmp_x_y
       Port ( clk : in STD_LOGIC;

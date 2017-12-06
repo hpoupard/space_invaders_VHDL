@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity alpha_canal is
-    Generic (   BITS_PER_PIXEL  : integer range 1 to 12;
+    Generic (   BITS_PER_PIXEL  : integer range 1 to 12 := 12;
                 COLOR_TRANS     : integer range 0 to 4095 := 3085);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
@@ -50,7 +50,7 @@ begin
     if rising_edge(clk) then
         if reset = '0' then
             data_out <= std_logic_vector(to_unsigned(0, BITS_PER_PIXEL));
-        elsif integer(unsigned(data_i)) = COLOR_TRANS then
+        elsif to_integer(unsigned(data_i)) = COLOR_TRANS then
             data_out <= data_b;
         else
             data_out <= data_i;

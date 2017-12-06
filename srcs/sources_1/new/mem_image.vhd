@@ -38,7 +38,7 @@ entity mem_image is
                 MEM_Y           : integer range 1 to 10 := 8;           
                 SIZE_X          : integer range 1 to 1024 := 160;
                 SIZE_Y          : integer range 1 to 1024 := 100;
-                IMAGE_NAME      : string := "test.bin";
+                IMAGE_NAME      : string := "images/test.bin";
                 TEST_MODE       : boolean := false;
                 TEST_COLOR      : integer range 0 to 4095 := 4095);
         
