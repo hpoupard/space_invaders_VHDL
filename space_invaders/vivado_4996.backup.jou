@@ -2,10 +2,10 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Sat Dec  2 17:31:00 2017
-# Process ID: 212
+# Start of session at: Sat Dec  2 17:21:54 2017
+# Process ID: 4996
 # Current directory: C:/Users/hpoup/Desktop/space_invaders_VHDL/space_invaders
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2904 C:\Users\hpoup\Desktop\space_invaders_VHDL\space_invaders\space_invaders.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1744 C:\Users\hpoup\Desktop\space_invaders_VHDL\space_invaders\space_invaders.xpr
 # Log file: C:/Users/hpoup/Desktop/space_invaders_VHDL/space_invaders/vivado.log
 # Journal file: C:/Users/hpoup/Desktop/space_invaders_VHDL/space_invaders\vivado.jou
 #-----------------------------------------------------------

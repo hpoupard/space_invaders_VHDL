@@ -49,5 +49,16 @@ architecture Behavioral of game_fsm is
 
 begin
 
+--gestion_collision : process(clk)
+--begin
+--    if (rising_edge(clk)) then
+--        if reset = '0' then
+--            increase <= '0';
+--            game_over <= '0';
+--            bloc_touched <= '0';
+--        elsif blablavka then
+--        end if;
+--    end if;
+--end process gestion_collision;
 
 end Behavioral;
