@@ -44,9 +44,12 @@ entity logic_module is
 			  INTER : integer range 1 to 128 := 16);
     Port (    clk : in STD_LOGIC;
               reset : in STD_LOGIC;
-              left : in STD_LOGIC;
-              right :  in STD_LOGIC;
-		      tir : in STD_LOGIC;
+			  sndRec : in  STD_LOGIC;
+			  DIN : in  STD_LOGIC_VECTOR (7 downto 0);
+              MISO : in  STD_LOGIC;
+              SS : out  STD_LOGIC;
+              SCLK : out  STD_LOGIC;
+              MOSI : out  STD_LOGIC;
 		      x_offset : out STD_LOGIC_VECTOR((SIZE_X - 1) downto 0);
               x_offset_tir : out STD_LOGIC_VECTOR((SIZE_X - 1) downto 0);
 		      y_offset_tir : out STD_LOGIC_VECTOR((SIZE_Y - 1) downto 0);
@@ -57,14 +60,29 @@ end top_module;
 
 architecture Behavioral of logic_module is
 
+entity PmodJSTK is
+    Port ( CLK : in  STD_LOGIC;
+           RST : in  STD_LOGIC;
+           sndRec : in  STD_LOGIC;
+           DIN : in  STD_LOGIC_VECTOR (7 downto 0);
+           MISO : in  STD_LOGIC;
+           SS : out  STD_LOGIC;
+           SCLK : out  STD_LOGIC;
+           MOSI : out  STD_LOGIC;
+           x_val    : out  STD_LOGIC_VECTOR (9 downto 0);
+           y_val    : out  STD_LOGIC_VECTOR (9 downto 0);
+           button_1 : out  STD_LOGIC;
+           button_2 : out  STD_LOGIC
+           );
+end PmodJSTK;
+
 component gest_command is
 	Generic ( TAILLE_P_X : integer range 1 to 128 := 16;
 			  SIZE_X : integer range 0 to 10 := 8;
 			  SIZE_X_SCREEN : integer range 160 to 640 := 320);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
-           left : in STD_LOGIC;
-           right : in STD_LOGIC;
+           x_val : in STD_LOGIC_VECTOR (9 downto 0);
            shot : in STD_LOGIC;
            enable_shot : in STD_LOGIC;
            x_offset : out STD_LOGIC_VECTOR ((SIZE_X - 1) downto 0);
@@ -112,10 +130,25 @@ component clock_tir is
 end component;
 
 signal clk_e, clk_tir : STD_LOGIC;
-signal increase, enable_shot, launch_shot : STD_LOGIC;
+signal increase, enable_shot, launch_shot, shot : STD_LOGIC;
 signal x_offset, x_offset_e, x_offset_tir, y_offset_e, y_offset_tir : STD_LOGIC_VECTOR ((SIZE_X - 1) downto 0);
+signal x_val : STD_LOGIC_VECTOR (9 downto 0);
 
 begin
+
+joystick : PmodJSTK
+port map (
+		CLK => clk,
+		RST => reset,
+		sndRec =>;
+	    DIN =>
+        MISO => MISO,
+        SS => SS,
+		SCLK => SCLK,
+        MOSI => MOSI,
+        x_val => x_val,
+        button_1 => shot
+		);
 
 commande : gest_command
 generic map (
@@ -126,8 +159,7 @@ generic map (
 port map(
         clk => clk,
         reset => reset,
-        left => left,
-        right => right,
+        x_val => x_val,
         shot => shot,
         enable_shot => enable_shot,
         launch_shot => launch_shot,

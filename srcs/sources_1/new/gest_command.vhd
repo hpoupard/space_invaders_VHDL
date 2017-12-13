@@ -37,8 +37,7 @@ entity gest_command is
 			  SIZE_X_SCREEN : integer range 160 to 640 := 320);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
-           left : in STD_LOGIC;
-           right : in STD_LOGIC;
+           x_val : in STD_LOGIC_VECTOR(9 downto 0);
            shot : in STD_LOGIC;
            enable_shot : in STD_LOGIC;
            x_offset : out STD_LOGIC_VECTOR ((SIZE_X - 1) downto 0);
@@ -58,10 +57,10 @@ mouvement : process(clk)
             if reset = '0' then
                 offset_x <= to_unsigned(60, SIZE_X);
                 compteur <= 0;
-            elsif (left = '1' and compteur = 0 and offset_x > 0) then
+            elsif (unsigned(x_val) < to_unsigned(2**4, 10) and compteur = 0 and offset_x > 0) then
                 offset_x <= offset_x - 1;
                 compteur <= 299999;
-            elsif (right = '1' and compteur = 0 and offset_x < (SIZE_X_SCREEN - SIZE_X) ) then
+            elsif (unsigned(x_val) > to_unsigned(2**6, 10) and compteur = 0 and offset_x < (SIZE_X_SCREEN - SIZE_X) ) then
                 offset_x <= offset_x + 1;
                 compteur <= 299999;
             else
