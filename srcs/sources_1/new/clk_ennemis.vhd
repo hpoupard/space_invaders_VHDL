@@ -33,8 +33,8 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity clk_ennemis is
     generic ( NMB_ENNEMIS : integer range 0 to 20 := 20;
-              VITESSE_MAX : integer := 5*100000000/120;
-              VITESSE_MIN : integer := 1*100000000/120; 
+              VITESSE_MAX : integer range 0 to 10000000;
+              VITESSE_MIN : integer range 0 to 10000000; 
               SIZE_X : integer range 0 to 640 := 160);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
