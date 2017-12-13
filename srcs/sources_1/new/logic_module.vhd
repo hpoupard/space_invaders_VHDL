@@ -40,7 +40,8 @@ entity logic_module is
 			  TAILLE_E_Y : integer range 1 to 128 := 16;
 			  TAILLE_P_X : integer range 1 to 128 := 16;
 			  TAILLE_P_Y : integer range 1 to 128 := 16;
-			  SIZE_X_SCREEN : integer range 160 to 640 := 320);
+			  SIZE_X_SCREEN : integer range 160 to 640 := 320;
+			  INTER : integer range 1 to 128 := 16);
     Port (    clk : in STD_LOGIC;
               reset : in STD_LOGIC;
               left : in STD_LOGIC;
