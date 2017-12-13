@@ -1,4 +1,3 @@
-----------------------------------------------------------------------------------
 -- Company: 
 -- Engineer: 
 -- 
@@ -31,7 +30,7 @@ use IEEE.NUMERIC_STD.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity logic_module is
+entity module_logique is
 	Generic ( SIZE_X : integer range 0 to 10 := 8;
 			  SIZE_Y : integer range 0 to 10 := 8;
 			  ROW_E : integer range 0 to 30 := 4;
@@ -55,12 +54,12 @@ entity logic_module is
 		      y_offset_tir : out STD_LOGIC_VECTOR((SIZE_Y - 1) downto 0);
 		      x_offset_e : out STD_LOGIC_VECTOR((SIZE_X - 1) downto 0);
 		      y_offset_e : out STD_LOGIC_VECTOR((SIZE_Y - 1) downto 0);
-		      alive : out STD_LOGIC_VECTOR((ROW_E*LINE_E - 1) downto 0);
-end top_module;
+		      alive : out STD_LOGIC_VECTOR((ROW_E*LINE_E - 1) downto 0));
+end module_logique;
 
-architecture Behavioral of logic_module is
+architecture Behavioral of module_logique is
 
-entity PmodJSTK is
+component PmodJSTK is
     Port ( CLK : in  STD_LOGIC;
            RST : in  STD_LOGIC;
            sndRec : in  STD_LOGIC;
@@ -74,7 +73,7 @@ entity PmodJSTK is
            button_1 : out  STD_LOGIC;
            button_2 : out  STD_LOGIC
            );
-end PmodJSTK;
+end component;
 
 component gest_command is
 	Generic ( TAILLE_P_X : integer range 1 to 128 := 16;
@@ -102,7 +101,7 @@ end component;
 
 component gest_ennemis is
 	Generic ( SIZE_X : integer range 0 to 10 := 8;
-			  SIZE_X_SCREEN : integer range 160 to 640 := 320;
+			  SIZE_X_SCREEN : integer range 160 to 640 := 320);
     Port ( clk : in STD_LOGIC;
            clk_e : in STD_LOGIC;
            reset : in STD_LOGIC;
@@ -111,7 +110,7 @@ component gest_ennemis is
 end component;
 
 component gestion_tir is
-	Generic ( SIZE_X : integer range 0 to 10 : 8);
+	Generic ( SIZE_X : integer range 0 to 10 := 8);
     Port ( clk : in STD_LOGIC;
            clk_tir : in STD_LOGIC;
            reset : in STD_LOGIC;
@@ -131,7 +130,7 @@ end component;
 
 signal clk_e, clk_tir : STD_LOGIC;
 signal increase, enable_shot, launch_shot, shot : STD_LOGIC;
-signal x_offset, x_offset_e, x_offset_tir, y_offset_e, y_offset_tir : STD_LOGIC_VECTOR ((SIZE_X - 1) downto 0);
+signal s_x_offset : STD_LOGIC_VECTOR ((SIZE_X - 1) downto 0);
 signal x_val : STD_LOGIC_VECTOR (9 downto 0);
 
 begin
@@ -140,8 +139,8 @@ joystick : PmodJSTK
 port map (
 		CLK => clk,
 		RST => reset,
-		sndRec =>;
-	    DIN =>
+		sndRec =>sndRec,
+	    DIN => DIN,
         MISO => MISO,
         SS => SS,
 		SCLK => SCLK,
@@ -163,7 +162,7 @@ port map(
         shot => shot,
         enable_shot => enable_shot,
         launch_shot => launch_shot,
-        x_offset => x_offset
+        x_offset => s_x_offset
         );
 
 clock_e : clk_ennemis
@@ -202,7 +201,7 @@ generic map ( SIZE_X => SIZE_X
         reset => reset,
         launch_shot => launch_shot,
         bloc_touched => '0',
-        x_offset => x_offset,
+        x_offset => s_x_offset,
         x_offset_tir => x_offset_tir,
         y_offset_tir => y_offset_tir,
         enable_shot => enable_shot
@@ -216,5 +215,9 @@ clock_tir_e : clock_tir
     );
 	
 alive <= STD_LOGIC_VECTOR(to_unsigned(2**(ROW_E*LINE_E) - 1, ROW_E*LINE_E));
+x_offset <= s_x_offset;
 
 end Behavioral;
+
+
+

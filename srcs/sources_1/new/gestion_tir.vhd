@@ -32,7 +32,7 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity gestion_tir is
-	Generic ( SIZE_X : integer range 0 to 10 : 8);
+	Generic ( SIZE_X : integer range 0 to 10 := 8);
     Port ( clk : in STD_LOGIC;
            clk_tir : in STD_LOGIC;
            reset : in STD_LOGIC;
