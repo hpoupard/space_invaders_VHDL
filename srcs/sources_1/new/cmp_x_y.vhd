@@ -32,15 +32,16 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity cmp_x_y is
-    Generic (   SIZE_X : integer range 1 to 8;
-                SIZE_Y : integer range 1 to 8;
-                LIMIT_X : integer range 1 to 256;
-                LIMIT_Y : integer range 1 to 256);
+    Generic (   SIZE_X : integer range 1 to 10;
+                SIZE_Y : integer range 1 to 10;
+                LIMIT_X : integer range 1 to 1023;
+                LIMIT_Y : integer range 1 to 1023;
+                SIZE_ADDR : integer range 1 to 20);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
            cmp_x : out STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
            cmp_y : out STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0);
-           addr : out STD_LOGIC_VECTOR(13 downto 0));
+           addr : out STD_LOGIC_VECTOR(SIZE_ADDR - 1 downto 0));
 end cmp_x_y;
 
 architecture Behavioral of cmp_x_y is
@@ -65,7 +66,7 @@ begin
         elsif comp_x = LIMIT_X-1 then
             comp_x <= 0;
             comp_y <= comp_y + 1;
-            saddr <= saddr + 160 - LIMIT_X + 1;
+            saddr <= saddr + 1;
         else
             comp_x <= comp_x + 1;
             saddr <= saddr + 1;
