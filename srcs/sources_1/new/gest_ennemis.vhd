@@ -33,7 +33,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity gest_ennemis is
 	Generic ( SIZE_X : integer range 0 to 10 := 8;
-			  SIZE_X_SCREEN : integer range 160 to 640 := 320;
+			  SIZE_X_SCREEN : integer range 160 to 640 := 320);
     Port ( clk : in STD_LOGIC;
            clk_e : in STD_LOGIC;
            reset : in STD_LOGIC;

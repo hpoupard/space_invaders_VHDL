@@ -181,5 +181,7 @@ clock_tir_e : clock_tir
     reset => reset,
     clk_tir => clk_tir
     );
+	
+alive <= STD_LOGIC_VECTOR(to_unsigned(2**(ROW_E*LINE_E) - 1, ROW_E*LINE_E));
 
 end Behavioral;
