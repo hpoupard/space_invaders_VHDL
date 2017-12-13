@@ -86,10 +86,10 @@ begin
 end process synchrone;
 
 --Detection de l'image a afficher
-asynchrone : process(s_x, s_y, alive)
+asynchrone : process(s_x, s_y, s_off_p, s_off_x_e, s_off_y_e, alive)
 begin
-    for I in 0 to ROW_E loop
-        for J in 0 to LINE_E loop
+    for I in 0 to ROW_E-1 loop
+        for J in 0 to LINE_E-1 loop
             if (s_x >= I*(TAILLE_E_X+INTER) + s_off_x_e) and (s_x < I*(TAILLE_E_X+INTER) + s_off_x_e + TAILLE_E_X)
                  and (s_y >= J*(TAILLE_E_Y+INTER) + s_off_y_e) and (s_y < J*(TAILLE_E_Y+INTER) + s_off_y_e + TAILLE_E_X)
                  and alive(I+J*ROW_E) = '1' then

@@ -76,6 +76,6 @@ end process synchrone;
 
 cmp_x <= std_logic_vector(to_unsigned(comp_x, SIZE_X));
 cmp_y <= std_logic_vector(to_unsigned(comp_y, SIZE_Y));
-addr <= std_logic_vector(to_unsigned(saddr, 14));
+addr <= std_logic_vector(to_unsigned(saddr, SIZE_ADDR));
 
 end Behavioral;

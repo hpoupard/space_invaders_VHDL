@@ -34,24 +34,24 @@ use IEEE.NUMERIC_STD.ALL;
 entity module_affichage is
     Generic (   SIZE_X  : integer range 1 to 10 := 8;
                 SIZE_Y  : integer range 1 to 10 := 8;
-                SCREEN_X    : integer range 0 to 1023 := 160;
-                SCREEN_Y    : integer range 0 to 1023 := 100;
-                SIZE_ADDR   : integer range 1 to 20 := 15;
+                SCREEN_X    : integer range 0 to 1023 := 320;
+                SCREEN_Y    : integer range 0 to 1023 := 200;
+                SIZE_ADDR   : integer range 1 to 20 := 16;
                 BITS_PER_PIXEL : integer range 1 to 12 := 12;
                 TAILLE_E_X  : integer range 1 to 128 := 16;
                 TAILLE_E_Y  : integer range 1 to 128 := 16;
                 TAILLE_P_X  : integer range 1 to 128 := 16;
                 TAILLE_P_Y  : integer range 1 to 128 := 16;
-                SIZE_E_X  : integer range 1 to 7 := 16;
-                SIZE_E_Y  : integer range 1 to 7 := 16;
-                SIZE_P_X  : integer range 1 to 7 := 16;
-                SIZE_P_Y  : integer range 1 to 7 := 16;
+                SIZE_E_X  : integer range 1 to 8 := 4;
+                SIZE_E_Y  : integer range 1 to 8 := 4;
+                SIZE_P_X  : integer range 1 to 8 := 4;
+                SIZE_P_Y  : integer range 1 to 8 := 4;
                 INTER   : integer range 1 to 128 := 8;
                 ROW_E   : integer range 1 to 30 := 4;
                 LINE_E  : integer range 1 to 30 := 4;
-                IMG_BACK    : string := "image/background.bin";
-                IMG_PLAYER  : string := "image/player.bin";
-                IMG_ENEMIES : string := "image/enemies.bin";
+                IMG_BACK    : string := "images/background.bin";
+                IMG_PLAYER  : string := "images/player.bin";
+                IMG_ENEMIES : string := "images/enemies.bin";
                 TEST_MODE   : boolean := false;
                 COLOR_TRANS : integer range 0 to 4095 := 3085);
     Port (      clk : in STD_LOGIC;
@@ -87,10 +87,10 @@ component VGA_bitmap_320x200 is
 end component;
 
 component detect_pos is
-    Generic (   SIZE_X  : integer range 1 to 10 := 8;
+    Generic (   SIZE_X  : integer range 1 to 10 := 9;
                 SIZE_Y  : integer range 1 to 10 := 8;
-                SCREEN_X    : integer range 0 to 1023 := 160;
-                SCREEN_Y    : integer range 0 to 1023 := 100;
+                SCREEN_X    : integer range 0 to 1023 := 320;
+                SCREEN_Y    : integer range 0 to 1023 := 200;
                 TAILLE_E_X  : integer range 1 to 128 := 16;
                 TAILLE_E_Y  : integer range 1 to 128 := 16;
                 TAILLE_P_X  : integer range 1 to 128 := 16;
@@ -132,9 +132,9 @@ component alpha_canal is
                 COLOR_TRANS     : integer range 0 to 4095 := 3085);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
-           data_i : in STD_LOGIC_VECTOR (0 downto 0);
-           data_b : in STD_LOGIC_VECTOR (0 downto 0);
-           data_out : out STD_LOGIC_VECTOR (0 downto 0));
+           data_i : in STD_LOGIC_VECTOR (BITS_PER_PIXEL - 1 downto 0);
+           data_b : in STD_LOGIC_VECTOR (BITS_PER_PIXEL - 1 downto 0);
+           data_out : out STD_LOGIC_VECTOR (BITS_PER_PIXEL - 1 downto 0));
 end component;
 
 component mux_pixel is
@@ -181,7 +181,7 @@ component cmp_x_y is
                 SIZE_Y : integer range 1 to 10;
                 LIMIT_X : integer range 1 to 1023;
                 LIMIT_Y : integer range 1 to 1023;
-                SIE_ADDR : integer range 1 to 20);
+                SIZE_ADDR : integer range 1 to 20);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
            cmp_x : out STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
@@ -299,8 +299,8 @@ Generic map (
     SIZE_X          => SCREEN_X,
     SIZE_Y          => SCREEN_Y,
     IMAGE_NAME      => IMG_BACK,
-    TEST_MODE       => TEST_MODE,
-    TEST_COLOR      => 1458)
+    TEST_MODE       => true,
+    TEST_COLOR      => 3085)
 Port map (
     clk         => clk,
     addr_x      => pix_x,
@@ -348,5 +348,19 @@ Port map (
     ADDR         => s_addr,
     data_in      => data_vga,
     data_write   => '1');
+
+cmpx_y : cmp_x_y
+Generic map (
+    SIZE_X  => SIZE_X,
+    SIZE_Y  => SIZE_Y,
+    LIMIT_X => SCREEN_X,
+    LIMIT_Y => SCREEN_Y,
+    SIZE_ADDR => SIZE_ADDR)
+Port map ( 
+    clk     => clk,
+    reset   => reset, 
+    cmp_x   => pix_x,
+    cmp_y   => pix_y,
+    addr    => s_addr);
 
 end Behavioral;

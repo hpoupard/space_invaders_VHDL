@@ -49,7 +49,7 @@ architecture Behavioral of mux_pixel is
 
 begin
 
-asynchrone : process(selec)
+asynchrone : process(selec, data1, data2, data3, data4, data5, data6, data7)
 begin
     case selec is
         when "0001" => data_out <= data1;

@@ -36,9 +36,9 @@ entity alpha_canal is
                 COLOR_TRANS     : integer range 0 to 4095 := 3085);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
-           data_i : in STD_LOGIC_VECTOR (0 downto 0);
-           data_b : in STD_LOGIC_VECTOR (0 downto 0);
-           data_out : out STD_LOGIC_VECTOR (0 downto 0));
+           data_i : in STD_LOGIC_VECTOR (BITS_PER_PIXEL - 1 downto 0);
+           data_b : in STD_LOGIC_VECTOR (BITS_PER_PIXEL - 1 downto 0);
+           data_out : out STD_LOGIC_VECTOR (BITS_PER_PIXEL - 1 downto 0));
 end alpha_canal;
 
 architecture Behavioral of alpha_canal is
@@ -47,10 +47,10 @@ begin
 
 synchrone : process(clk)
 begin
-    if rising_edge(clk) then
-        if reset = '0' then
-            data_out <= std_logic_vector(to_unsigned(0, BITS_PER_PIXEL));
-        elsif to_integer(unsigned(data_i)) = COLOR_TRANS then
+    if reset = '0' then
+        data_out <= std_logic_vector(to_unsigned(0, BITS_PER_PIXEL));
+    elsif rising_edge(clk) then
+        if to_integer(unsigned(data_i)) = COLOR_TRANS then
             data_out <= data_b;
         else
             data_out <= data_i;
