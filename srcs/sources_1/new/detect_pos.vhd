@@ -58,14 +58,14 @@ end detect_pos;
 
 architecture Behavioral of detect_pos is
 
-type state is (BACKGROUND, PLAYER, ENEMIES);
-
-signal s_mult   : integer range 0 to 63;
-signal s_alive  : STD_LOGIC_VECTOR (ROW_E*LINE_E - 1 downto 0);
-signal s_x, s_off_x_e, s_off_p  : integer range 0 to 2**SIZE_X-1;
-signal s_y, s_off_y_e           : integer range 0 to 2**SIZE_Y-1;
-signal etat : state;
-signal senemies, splayer : boolean;
+    type state is (BACKGROUND, PLAYER, ENEMIES);
+    
+    signal s_mult   : integer range 0 to 63;
+    signal s_alive  : STD_LOGIC_VECTOR (ROW_E*LINE_E - 1 downto 0);
+    signal s_x, s_off_x_e, s_off_p  : integer range 0 to 2**SIZE_X-1;
+    signal s_y, s_off_y_e           : integer range 0 to 2**SIZE_Y-1;
+    signal etat : state;
+    signal senemies, salive, splayer : boolean;
 
 begin
 
@@ -88,7 +88,7 @@ begin
         s_off_p     <= to_integer(unsigned(off_p));
         s_alive     <= alive;
         
-        if senemies = true then
+        if salive = true then
             incr_e <= '1';
         else
             incr_e <= '0';
@@ -111,11 +111,13 @@ end process synchrone;
 
 --Detection de l'image a afficher
 asynchrone : process(s_x, s_y, s_off_p, s_off_x_e, s_off_y_e, alive)
-variable det_enemies : boolean := false;
-variable det_player : boolean := false;
+    variable det_enemies : boolean := false;
+    variable det_enemies_alive : boolean := false;
+    variable det_player : boolean := false;
 begin
     det_enemies := false;
     det_player := false;
+    det_enemies_alive := false;
     
     if (s_x >= s_off_p and s_x < TAILLE_P_X + s_off_p) and (s_y >= SCREEN_Y - TAILLE_P_Y) then
         det_player := true;
@@ -125,23 +127,32 @@ begin
         for J in 0 to LINE_E-1 loop
             if (s_x >= I*(TAILLE_E_X+INTER) + s_off_x_e) and (s_x < I*(TAILLE_E_X+INTER) + s_off_x_e + TAILLE_E_X)
                  and (s_y >= J*(TAILLE_E_Y+INTER) + s_off_y_e) and (s_y < J*(TAILLE_E_Y+INTER) + s_off_y_e + TAILLE_E_Y)
-                 and alive(I+J*ROW_E) = '1' then
-                det_enemies := true;
+                 then
+                det_enemies_alive := true;
+                if alive(I+J*ROW_E) = '1' then
+                    det_enemies := true;
+                end if;
             end if;
         end loop;
     end loop;
 
-if det_enemies = true then
-    senemies <= true;
-else
-    senemies <= false;
-end if;
-
-if det_player = true then
-    splayer <= true;
-else
-    splayer <= false;
-end if;
+    if det_enemies = true then
+        senemies <= true;
+    else
+        senemies <= false;
+    end if;
+    
+    if det_enemies_alive = true then
+        salive <= true;
+    else
+        salive <= false;
+    end if;
+    
+    if det_player = true then
+        splayer <= true;
+    else
+        splayer <= false;
+    end if;
 
 end process asynchrone;
 

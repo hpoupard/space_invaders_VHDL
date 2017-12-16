@@ -109,7 +109,7 @@ Port map (
     off_p => std_logic_vector(to_unsigned(100, 9)),
     off_x_e => std_logic_vector(to_unsigned(100, 9)),
     off_y_e => std_logic_vector(to_unsigned(50, 8)),
-    alive => "0111111111111111",
+    alive => "0111010110011101",
     red => red,
     green => green,
     blue => blue,
