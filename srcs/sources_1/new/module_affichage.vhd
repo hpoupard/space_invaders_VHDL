@@ -130,7 +130,7 @@ end component;
 
 component alpha_canal is
     Generic (   BITS_PER_PIXEL  : integer range 1 to 12 := 12;
-                COLOR_TRANS     : integer range 0 to 4095 := 3085);
+                COLOR_TRANS     : integer range 0 to 4095 := 3855);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
            data_i : in STD_LOGIC_VECTOR (BITS_PER_PIXEL - 1 downto 0);

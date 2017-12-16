@@ -66,7 +66,7 @@ component module_affichage is
                 IMG_ENEMIES : string := "images/enemies.bin";
                 TEST_MODE   : boolean := false;
                 TOGGLE_BACKGROUND : boolean := false;
-                COLOR_TRANS : integer range 0 to 4095 := 3085);
+                COLOR_TRANS : integer range 0 to 4095 := 3855);
     Port (      clk : in STD_LOGIC;
                 reset : in STD_LOGIC;
                 off_p : in STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
