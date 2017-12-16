@@ -76,7 +76,7 @@ end process;
 pixel_read_addr : process(clk)
 begin
    if clk'event and clk='1' then
-      if reset = '1' or (not TOP_display) then
+      if reset = '0' or (not TOP_display) then
          pix_read_addr <= 0;
       elsif TOP_line and (h_counter mod 8)=0 then
          pix_read_addr <= pix_read_addr + 1;
@@ -93,7 +93,7 @@ end process;
 process(clk)
 begin
    if clk'event and clk='1' then
-      if reset = '1' then
+      if reset = '0' then
          VGA_vs    <= '0';
          TOP_display <= false;
       else
@@ -206,9 +206,9 @@ begin
                VGA_green <= next_pixel( 6 downto 3);
                VGA_blue  <= next_pixel( 2 downto 0) & next_pixel(2);
             when 12 =>
-               VGA_red   <= next_pixel(11 downto 8);
+               VGA_red   <= next_pixel( 3 downto 0);
                VGA_green <= next_pixel( 7 downto 4);
-               VGA_blue  <= next_pixel( 3 downto 0);
+               VGA_blue  <= next_pixel(11 downto 8);
          end case;
       end if;
    end if;
@@ -222,7 +222,7 @@ end process;
 process(clk)
 begin
    if clk'event and clk='1' then
-      if reset = '1' then
+      if reset = '0' then
          VGA_hs <= '0';
          TOP_line <= false;
       else
@@ -248,7 +248,7 @@ end process;
 process(clk)
 begin
    if clk'event and clk='1' then
-      if reset='1' then
+      if reset='0' then
          h_counter <= 0;
          v_counter <= 0;
       else

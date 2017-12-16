@@ -46,9 +46,9 @@ end cmp_x_y;
 
 architecture Behavioral of cmp_x_y is
 
-signal comp_x : integer range 0 to 159;
-signal comp_y : integer range 0 to 99;
-signal saddr : integer range 0 to 160*100-1;
+signal comp_x : integer range 0 to LIMIT_X-1;
+signal comp_y : integer range 0 to LIMIT_Y-1;
+signal saddr : integer range 0 to LIMIT_X*LIMIT_Y-1;
 
 begin
 

@@ -53,7 +53,8 @@ entity module_affichage is
                 IMG_PLAYER  : string := "images/player.bin";
                 IMG_ENEMIES : string := "images/enemies.bin";
                 TEST_MODE   : boolean := false;
-                COLOR_TRANS : integer range 0 to 4095 := 3085);
+                TOGGLE_BACKGROUND : boolean := true;
+                COLOR_TRANS : integer range 0 to 4095 := 3855);
     Port (      clk : in STD_LOGIC;
                 reset : in STD_LOGIC;
                 off_p : in STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
@@ -299,8 +300,8 @@ Generic map (
     SIZE_X          => SCREEN_X,
     SIZE_Y          => SCREEN_Y,
     IMAGE_NAME      => IMG_BACK,
-    TEST_MODE       => true,
-    TEST_COLOR      => 3085)
+    TEST_MODE       => TOGGLE_BACKGROUND,
+    TEST_COLOR      => 0)
 Port map (
     clk         => clk,
     addr_x      => pix_x,

@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 29.11.2017 12:19:00
+-- Create Date: 16.12.2017 23:11:57
 -- Design Name: 
--- Module Name: alpha_canal - Behavioral
+-- Module Name: universal_delay - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,29 +31,38 @@ use IEEE.NUMERIC_STD.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity alpha_canal is
-    Generic (   BITS_PER_PIXEL  : integer range 1 to 12 := 12;
-                COLOR_TRANS     : integer range 0 to 4095 := 3085);
+entity universal_delay is
+    Generic (   SIZE_DATA   : integer range 1 to 20 := 12;
+                DELAY       : integer range 1 to 50 := 10);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
-           data_i : in STD_LOGIC_VECTOR (BITS_PER_PIXEL - 1 downto 0);
-           data_b : in STD_LOGIC_VECTOR (BITS_PER_PIXEL - 1 downto 0);
-           data_out : out STD_LOGIC_VECTOR (BITS_PER_PIXEL - 1 downto 0));
-end alpha_canal;
+           data_in : in STD_LOGIC_VECTOR (SIZE_DATA-1 downto 0);
+           data_out : out STD_LOGIC_VECTOR (SIZE_DATA-1 downto 0));
+end universal_delay;
 
-architecture Behavioral of alpha_canal is
+architecture Behavioral of universal_delay is
+
+type MEMORY is array (0 to DELAY-2) of std_logic_vector(SIZE_DATA - 1 downto 0);
+signal mem : MEMORY;
 
 begin
 
 synchrone : process(clk, reset)
 begin
     if reset = '0' then
-        data_out <= std_logic_vector(to_unsigned(0, BITS_PER_PIXEL));
+        for I in 0 to DELAY-2 loop
+            mem(I) <= std_logic_vector(to_unsigned(0, SIZE_DATA));
+        end loop;
+        data_out <= std_logic_vector(to_unsigned(0, SIZE_DATA));
     elsif rising_edge(clk) then
-        if to_integer(unsigned(data_i)) = COLOR_TRANS then
-            data_out <= data_b;
+        if DELAY = 1 then
+            data_out <= data_in;
         else
-            data_out <= data_i;
+            data_out <= mem(DELAY-2);
+                for I in 1 to DELAY-2 loop
+                    mem(I) <= mem(I-1);
+                end loop;
+            mem(0) <= data_in;
         end if;
     end if;
 end process synchrone;

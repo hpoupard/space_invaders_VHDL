@@ -57,11 +57,13 @@ impure function ram_function_name (ram_file_name : in string) return GRAM is
    variable line_name : line;
    variable ram_name  : GRAM;
  begin                                                        
-   for I in 0 to SIZE_X*SIZE_Y-1 loop
-        if TEST_MODE = false then                                  
-            readline (ram_file, line_name);                             
-            read (line_name, ram_name((I mod SIZE_X) + I/SIZE_Y*(2**MEM_X)));
-        end if;
+    for J in 0 to SIZE_Y-1 loop
+        for I in 0 to SIZE_X-1 loop
+            if TEST_MODE = false then                                  
+                readline (ram_file, line_name);                             
+                read (line_name, ram_name(I + J*(SIZE_X + SIZE_X-2**MEM_X)));
+            end if;
+        end loop;
    end loop;                                                    
    return ram_name;                                                  
 end function;
