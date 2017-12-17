@@ -190,6 +190,15 @@ component cmp_x_y is
            addr : out STD_LOGIC_VECTOR(SIZE_ADDR - 1 downto 0));
 end component;
 
+component universal_delay is
+    Generic (   SIZE_DATA   : integer range 1 to 20;
+                DELAY       : integer range 1 to 50);
+    Port ( clk : in STD_LOGIC;
+           reset : in STD_LOGIC;
+           data_in : in STD_LOGIC_VECTOR (SIZE_DATA-1 downto 0);
+           data_out : out STD_LOGIC_VECTOR (SIZE_DATA-1 downto 0));
+end component;
+
 signal s_addr, sd_addr : STD_LOGIC_VECTOR(SIZE_ADDR - 1 downto 0);  -- Signal contenant l'adresse du bit a afficher
 signal pix_x : STD_LOGIC_VECTOR(SIZE_X - 1 downto 0);               -- Signal des coordonne en pixel
 signal pix_y : STD_LOGIC_VECTOR(SIZE_Y - 1 downto 0);              
@@ -320,7 +329,7 @@ Port map (
     data5   => std_logic_vector(to_unsigned(COLOR_TRANS, BITS_PER_PIXEL)),
     data6   => std_logic_vector(to_unsigned(COLOR_TRANS, BITS_PER_PIXEL)),
     data7   => std_logic_vector(to_unsigned(COLOR_TRANS, BITS_PER_PIXEL)),
-    selec   => smux, 
+    selec   => d_smux, 
     data_out => data_out); 
 
 transparence : alpha_canal
@@ -331,7 +340,7 @@ Port map (
     clk => clk,
     reset => reset,
     data_i => data_out,
-    data_b => data_b,
+    data_b => ddata_b,
     data_out => data_vga);
 
 vga : VGA_bitmap_320x200
@@ -346,7 +355,7 @@ Port map (
     VGA_green    => green,
     VGA_blue     => blue,
     
-    ADDR         => s_addr,
+    ADDR         => sd_addr,
     data_in      => data_vga,
     data_write   => '1');
 
@@ -363,5 +372,35 @@ Port map (
     cmp_x   => pix_x,
     cmp_y   => pix_y,
     addr    => s_addr);
+    
+delay_mult : universal_delay
+Generic map (
+    SIZE_DATA   => 4,
+    DELAY       => 1)
+Port map (
+    clk         => clk,
+    reset       => reset,
+    data_in     => smux,
+    data_out    => d_smux);
+
+delay_data_b : universal_delay
+Generic map (
+    SIZE_DATA   => BITS_PER_PIXEL,
+    DELAY       => 2)
+Port map (
+    clk         => clk,
+    reset       => reset,
+    data_in     => data_b,
+    data_out    => ddata_b);
+    
+delay_addr : universal_delay
+    Generic map (
+        SIZE_DATA   => SIZE_ADDR,
+        DELAY       => 4)
+    Port map (
+        clk         => clk,
+        reset       => reset,
+        data_in     => s_addr,
+        data_out    => sd_addr);
 
 end Behavioral;

@@ -32,8 +32,8 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity universal_delay is
-    Generic (   SIZE_DATA   : integer range 1 to 20 := 12;
-                DELAY       : integer range 1 to 50 := 10);
+    Generic (   SIZE_DATA   : integer range 1 to 20;
+                DELAY       : integer range 1 to 50);
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
            data_in : in STD_LOGIC_VECTOR (SIZE_DATA-1 downto 0);
