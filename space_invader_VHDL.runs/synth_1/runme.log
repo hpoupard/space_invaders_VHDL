@@ -1,0 +1,752 @@
+
+*** Running vivado
+    with args -log test_module_affichage.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source test_module_affichage.tcl
+
+
+****** Vivado v2017.3.1 (64-bit)
+  **** SW Build 2035080 on Fri Oct 20 14:20:01 MDT 2017
+  **** IP Build 2034413 on Fri Oct 20 15:56:25 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source test_module_affichage.tcl -notrace
+Command: synth_design -top test_module_affichage -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 6464 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 346.496 ; gain = 95.504
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'test_module_affichage' [D:/GitHub/space_invaders_VHDL/space_invader_VHDL.srcs/sources_1/new/test_module_affichage.vhd:44]
+	Parameter SIZE_X bound to: 9 - type: integer 
+	Parameter SIZE_Y bound to: 8 - type: integer 
+	Parameter SCREEN_X bound to: 320 - type: integer 
+	Parameter SCREEN_Y bound to: 200 - type: integer 
+	Parameter SIZE_ADDR bound to: 16 - type: integer 
+	Parameter BITS_PER_PIXEL bound to: 12 - type: integer 
+	Parameter TAILLE_E_X bound to: 16 - type: integer 
+	Parameter TAILLE_E_Y bound to: 16 - type: integer 
+	Parameter TAILLE_P_X bound to: 32 - type: integer 
+	Parameter TAILLE_P_Y bound to: 16 - type: integer 
+	Parameter SIZE_E_X bound to: 4 - type: integer 
+	Parameter SIZE_E_Y bound to: 4 - type: integer 
+	Parameter SIZE_P_X bound to: 5 - type: integer 
+	Parameter SIZE_P_Y bound to: 4 - type: integer 
+	Parameter INTER bound to: 8 - type: integer 
+	Parameter ROW_E bound to: 4 - type: integer 
+	Parameter LINE_E bound to: 4 - type: integer 
+	Parameter IMG_BACK bound to: images/background.bin - type: string 
+	Parameter IMG_PLAYER bound to: images/player.bin - type: string 
+	Parameter IMG_ENEMIES bound to: images/enemies.bin - type: string 
+	Parameter TEST_MODE bound to: 0 - type: bool 
+	Parameter TEST_BACKGROUND bound to: 1 - type: bool 
+	Parameter COLOR_TRANS bound to: 3855 - type: integer 
+INFO: [Synth 8-3491] module 'module_affichage' declared at 'D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:34' bound to instance 'affichage' of component 'module_affichage' [D:/GitHub/space_invaders_VHDL/space_invader_VHDL.srcs/sources_1/new/test_module_affichage.vhd:85]
+INFO: [Synth 8-638] synthesizing module 'module_affichage' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:71]
+	Parameter SIZE_X bound to: 9 - type: integer 
+	Parameter SIZE_Y bound to: 8 - type: integer 
+	Parameter SCREEN_X bound to: 320 - type: integer 
+	Parameter SCREEN_Y bound to: 200 - type: integer 
+	Parameter SIZE_ADDR bound to: 16 - type: integer 
+	Parameter BITS_PER_PIXEL bound to: 12 - type: integer 
+	Parameter TAILLE_E_X bound to: 16 - type: integer 
+	Parameter TAILLE_E_Y bound to: 16 - type: integer 
+	Parameter TAILLE_P_X bound to: 32 - type: integer 
+	Parameter TAILLE_P_Y bound to: 16 - type: integer 
+	Parameter SIZE_E_X bound to: 4 - type: integer 
+	Parameter SIZE_E_Y bound to: 4 - type: integer 
+	Parameter SIZE_P_X bound to: 5 - type: integer 
+	Parameter SIZE_P_Y bound to: 4 - type: integer 
+	Parameter INTER bound to: 8 - type: integer 
+	Parameter ROW_E bound to: 4 - type: integer 
+	Parameter LINE_E bound to: 4 - type: integer 
+	Parameter IMG_BACK bound to: images/background.bin - type: string 
+	Parameter IMG_PLAYER bound to: images/player.bin - type: string 
+	Parameter IMG_ENEMIES bound to: images/enemies.bin - type: string 
+	Parameter TEST_MODE bound to: 0 - type: bool 
+	Parameter TEST_BACKGROUND bound to: 1 - type: bool 
+	Parameter COLOR_TRANS bound to: 3855 - type: integer 
+	Parameter SIZE_X bound to: 9 - type: integer 
+	Parameter SIZE_Y bound to: 8 - type: integer 
+	Parameter SCREEN_X bound to: 320 - type: integer 
+	Parameter SCREEN_Y bound to: 200 - type: integer 
+	Parameter TAILLE_E_X bound to: 16 - type: integer 
+	Parameter TAILLE_E_Y bound to: 16 - type: integer 
+	Parameter TAILLE_P_X bound to: 32 - type: integer 
+	Parameter TAILLE_P_Y bound to: 16 - type: integer 
+	Parameter INTER bound to: 8 - type: integer 
+	Parameter ROW_E bound to: 4 - type: integer 
+	Parameter LINE_E bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'detect_pos' declared at 'D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:34' bound to instance 'det' of component 'detect_pos' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:231]
+INFO: [Synth 8-638] synthesizing module 'detect_pos' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:59]
+	Parameter SIZE_X bound to: 9 - type: integer 
+	Parameter SIZE_Y bound to: 8 - type: integer 
+	Parameter SCREEN_X bound to: 320 - type: integer 
+	Parameter SCREEN_Y bound to: 200 - type: integer 
+	Parameter TAILLE_E_X bound to: 16 - type: integer 
+	Parameter TAILLE_E_Y bound to: 16 - type: integer 
+	Parameter TAILLE_P_X bound to: 32 - type: integer 
+	Parameter TAILLE_P_Y bound to: 16 - type: integer 
+	Parameter INTER bound to: 8 - type: integer 
+	Parameter ROW_E bound to: 4 - type: integer 
+	Parameter LINE_E bound to: 4 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element s_alive_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:82]
+INFO: [Synth 8-256] done synthesizing module 'detect_pos' (1#1) [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:59]
+	Parameter NMB_ROW bound to: 4 - type: integer 
+	Parameter SIZE_X bound to: 4 - type: integer 
+	Parameter SIZE_Y bound to: 4 - type: integer 
+	Parameter LIMIT_X bound to: 16 - type: integer 
+	Parameter LIMIT_Y bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'memory_acess_matrix' declared at 'D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/memory_acess_matrix.vhd:34' bound to instance 'mem_acess_e' of component 'memory_acess_matrix' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:257]
+INFO: [Synth 8-638] synthesizing module 'memory_acess_matrix' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/memory_acess_matrix.vhd:47]
+	Parameter NMB_ROW bound to: 4 - type: integer 
+	Parameter SIZE_X bound to: 4 - type: integer 
+	Parameter SIZE_Y bound to: 4 - type: integer 
+	Parameter LIMIT_X bound to: 16 - type: integer 
+	Parameter LIMIT_Y bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'memory_acess_matrix' (2#1) [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/memory_acess_matrix.vhd:47]
+	Parameter SIZE_X bound to: 5 - type: integer 
+	Parameter SIZE_Y bound to: 4 - type: integer 
+	Parameter LIMIT_X bound to: 32 - type: integer 
+	Parameter LIMIT_Y bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'memory_acess_image' declared at 'D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/memory_acess_image.vhd:34' bound to instance 'mem_acess_p' of component 'memory_acess_image' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:271]
+INFO: [Synth 8-638] synthesizing module 'memory_acess_image' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/memory_acess_image.vhd:46]
+	Parameter SIZE_X bound to: 5 - type: integer 
+	Parameter SIZE_Y bound to: 4 - type: integer 
+	Parameter LIMIT_X bound to: 32 - type: integer 
+	Parameter LIMIT_Y bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'memory_acess_image' (3#1) [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/memory_acess_image.vhd:46]
+	Parameter BITS_PER_COLOR bound to: 4 - type: integer 
+	Parameter MEM_X bound to: 5 - type: integer 
+	Parameter MEM_Y bound to: 4 - type: integer 
+	Parameter SIZE_X bound to: 32 - type: integer 
+	Parameter SIZE_Y bound to: 16 - type: integer 
+	Parameter IMAGE_NAME bound to: images/player.bin - type: string 
+	Parameter TEST_MODE bound to: 0 - type: bool 
+	Parameter TEST_COLOR bound to: 1000 - type: integer 
+INFO: [Synth 8-3491] module 'mem_image' declared at 'D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/mem_image.vhd:35' bound to instance 'mem_player' of component 'mem_image' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:284]
+INFO: [Synth 8-638] synthesizing module 'mem_image' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/mem_image.vhd:51]
+	Parameter BITS_PER_COLOR bound to: 4 - type: integer 
+	Parameter MEM_X bound to: 5 - type: integer 
+	Parameter MEM_Y bound to: 4 - type: integer 
+	Parameter SIZE_X bound to: 32 - type: integer 
+	Parameter SIZE_Y bound to: 16 - type: integer 
+	Parameter IMAGE_NAME bound to: images/player.bin - type: string 
+	Parameter TEST_MODE bound to: 0 - type: bool 
+	Parameter TEST_COLOR bound to: 1000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'mem_image' (4#1) [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/mem_image.vhd:51]
+	Parameter BITS_PER_COLOR bound to: 4 - type: integer 
+	Parameter MEM_X bound to: 4 - type: integer 
+	Parameter MEM_Y bound to: 4 - type: integer 
+	Parameter SIZE_X bound to: 16 - type: integer 
+	Parameter SIZE_Y bound to: 16 - type: integer 
+	Parameter IMAGE_NAME bound to: images/enemies.bin - type: string 
+	Parameter TEST_MODE bound to: 0 - type: bool 
+	Parameter TEST_COLOR bound to: 1000 - type: integer 
+INFO: [Synth 8-3491] module 'mem_image' declared at 'D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/mem_image.vhd:35' bound to instance 'mem_enemies' of component 'mem_image' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:300]
+INFO: [Synth 8-638] synthesizing module 'mem_image__parameterized1' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/mem_image.vhd:51]
+	Parameter BITS_PER_COLOR bound to: 4 - type: integer 
+	Parameter MEM_X bound to: 4 - type: integer 
+	Parameter MEM_Y bound to: 4 - type: integer 
+	Parameter SIZE_X bound to: 16 - type: integer 
+	Parameter SIZE_Y bound to: 16 - type: integer 
+	Parameter IMAGE_NAME bound to: images/enemies.bin - type: string 
+	Parameter TEST_MODE bound to: 0 - type: bool 
+	Parameter TEST_COLOR bound to: 1000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'mem_image__parameterized1' (4#1) [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/mem_image.vhd:51]
+	Parameter SIZE_X bound to: 9 - type: integer 
+	Parameter SIZE_Y bound to: 8 - type: integer 
+	Parameter BITS_PER_PIXEL bound to: 12 - type: integer 
+	Parameter INCR bound to: 7 - type: integer 
+INFO: [Synth 8-3491] module 'color_gradient' declared at 'D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/color_gradient.vhd:34' bound to instance 'gradient' of component 'color_gradient' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:318]
+INFO: [Synth 8-638] synthesizing module 'color_gradient' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/color_gradient.vhd:46]
+	Parameter SIZE_X bound to: 9 - type: integer 
+	Parameter SIZE_Y bound to: 8 - type: integer 
+	Parameter BITS_PER_PIXEL bound to: 12 - type: integer 
+	Parameter INCR bound to: 7 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'color_gradient' (5#1) [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/color_gradient.vhd:46]
+	Parameter BITS_PER_PIXEL bound to: 12 - type: integer 
+	Parameter COLOR_TRANS bound to: 3855 - type: integer 
+INFO: [Synth 8-3491] module 'mux_pixel' declared at 'D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/mux_pixel.vhd:34' bound to instance 'multiplex' of component 'mux_pixel' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:348]
+INFO: [Synth 8-638] synthesizing module 'mux_pixel' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/mux_pixel.vhd:48]
+	Parameter BITS_PER_PIXEL bound to: 12 - type: integer 
+	Parameter COLOR_TRANS bound to: 3855 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'mux_pixel' (6#1) [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/mux_pixel.vhd:48]
+	Parameter BITS_PER_PIXEL bound to: 12 - type: integer 
+	Parameter COLOR_TRANS bound to: 3855 - type: integer 
+INFO: [Synth 8-3491] module 'alpha_canal' declared at 'D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/alpha_canal.vhd:34' bound to instance 'transparence' of component 'alpha_canal' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:363]
+INFO: [Synth 8-638] synthesizing module 'alpha_canal' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/alpha_canal.vhd:44]
+	Parameter BITS_PER_PIXEL bound to: 12 - type: integer 
+	Parameter COLOR_TRANS bound to: 3855 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'alpha_canal' (7#1) [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/alpha_canal.vhd:44]
+	Parameter bit_per_pixel bound to: 12 - type: integer 
+	Parameter grayscale bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'VGA_bitmap_320x200' declared at 'D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/vga_bitmap_320x200.vhd:26' bound to instance 'vga' of component 'VGA_bitmap_320x200' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:374]
+INFO: [Synth 8-638] synthesizing module 'VGA_bitmap_320x200' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/vga_bitmap_320x200.vhd:43]
+	Parameter bit_per_pixel bound to: 12 - type: integer 
+	Parameter grayscale bound to: 0 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'VGA_bitmap_320x200' (8#1) [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/vga_bitmap_320x200.vhd:43]
+	Parameter SIZE_X bound to: 9 - type: integer 
+	Parameter SIZE_Y bound to: 8 - type: integer 
+	Parameter LIMIT_X bound to: 320 - type: integer 
+	Parameter LIMIT_Y bound to: 200 - type: integer 
+	Parameter SIZE_ADDR bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'cmp_x_y' declared at 'D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/cmp_x_y.vhd:34' bound to instance 'cmpx_y' of component 'cmp_x_y' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:390]
+INFO: [Synth 8-638] synthesizing module 'cmp_x_y' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/cmp_x_y.vhd:47]
+	Parameter SIZE_X bound to: 9 - type: integer 
+	Parameter SIZE_Y bound to: 8 - type: integer 
+	Parameter LIMIT_X bound to: 320 - type: integer 
+	Parameter LIMIT_Y bound to: 200 - type: integer 
+	Parameter SIZE_ADDR bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'cmp_x_y' (9#1) [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/cmp_x_y.vhd:47]
+	Parameter SIZE_DATA bound to: 4 - type: integer 
+	Parameter DELAY bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'universal_delay' declared at 'D:/GitHub/space_invaders_VHDL/space_invader_VHDL.srcs/sources_1/new/universal_delay.vhd:34' bound to instance 'delay_mult' of component 'universal_delay' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:404]
+INFO: [Synth 8-638] synthesizing module 'universal_delay' [D:/GitHub/space_invaders_VHDL/space_invader_VHDL.srcs/sources_1/new/universal_delay.vhd:43]
+	Parameter SIZE_DATA bound to: 4 - type: integer 
+	Parameter DELAY bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'universal_delay' (10#1) [D:/GitHub/space_invaders_VHDL/space_invader_VHDL.srcs/sources_1/new/universal_delay.vhd:43]
+	Parameter SIZE_DATA bound to: 12 - type: integer 
+	Parameter DELAY bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'universal_delay' declared at 'D:/GitHub/space_invaders_VHDL/space_invader_VHDL.srcs/sources_1/new/universal_delay.vhd:34' bound to instance 'delay_data_b' of component 'universal_delay' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:414]
+INFO: [Synth 8-638] synthesizing module 'universal_delay__parameterized1' [D:/GitHub/space_invaders_VHDL/space_invader_VHDL.srcs/sources_1/new/universal_delay.vhd:43]
+	Parameter SIZE_DATA bound to: 12 - type: integer 
+	Parameter DELAY bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'universal_delay__parameterized1' (10#1) [D:/GitHub/space_invaders_VHDL/space_invader_VHDL.srcs/sources_1/new/universal_delay.vhd:43]
+	Parameter SIZE_DATA bound to: 16 - type: integer 
+	Parameter DELAY bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'universal_delay' declared at 'D:/GitHub/space_invaders_VHDL/space_invader_VHDL.srcs/sources_1/new/universal_delay.vhd:34' bound to instance 'delay_addr' of component 'universal_delay' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:424]
+INFO: [Synth 8-638] synthesizing module 'universal_delay__parameterized3' [D:/GitHub/space_invaders_VHDL/space_invader_VHDL.srcs/sources_1/new/universal_delay.vhd:43]
+	Parameter SIZE_DATA bound to: 16 - type: integer 
+	Parameter DELAY bound to: 4 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'universal_delay__parameterized3' (10#1) [D:/GitHub/space_invaders_VHDL/space_invader_VHDL.srcs/sources_1/new/universal_delay.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'module_affichage' (11#1) [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/module_affichage.vhd:71]
+INFO: [Synth 8-256] done synthesizing module 'test_module_affichage' (12#1) [D:/GitHub/space_invaders_VHDL/space_invader_VHDL.srcs/sources_1/new/test_module_affichage.vhd:44]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 406.168 ; gain = 155.176
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 406.168 ; gain = 155.176
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/GitHub/space_invaders_VHDL/srcs/constrs_1/new/contrainte.xdc]
+Finished Parsing XDC File [D:/GitHub/space_invaders_VHDL/srcs/constrs_1/new/contrainte.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/GitHub/space_invaders_VHDL/srcs/constrs_1/new/contrainte.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/test_module_affichage_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/test_module_affichage_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 716.434 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:129]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:129]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:129]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:128]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:128]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:128]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:129]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:129]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:129]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:128]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:128]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:128]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:129]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:129]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:129]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:128]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:128]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:128]
+INFO: [Synth 8-5544] ROM "s_mult" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cmp_y" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cmp_row" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element cmp_y_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/memory_acess_matrix.vhd:60]
+INFO: [Synth 8-5546] ROM "cmp_y" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element cmp_y_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/memory_acess_image.vhd:58]
+WARNING: [Synth 8-6014] Unused sequential element data_out_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/mem_image.vhd:79]
+WARNING: [Synth 8-6014] Unused sequential element data_out_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/mem_image.vhd:79]
+INFO: [Synth 8-5546] ROM "VGA_vs" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TOP_display" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "VGA_hs" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TOP_line" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "v_counter" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element pix_read_addr_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/vga_bitmap_320x200.vhd:67]
+INFO: [Synth 8-5546] ROM "comp_y" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element comp_y_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/cmp_x_y.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element saddr_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/cmp_x_y.vhd:61]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     16 Bit       Adders := 1     
+	   2 Input     12 Bit       Adders := 1     
+	   3 Input     11 Bit       Adders := 5     
+	   3 Input     10 Bit       Adders := 4     
+	   2 Input     10 Bit       Adders := 7     
+	   2 Input      9 Bit       Adders := 7     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 3     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 4     
+	               12 Bit    Registers := 9     
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 3     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 7     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---RAMs : 
+	             750K Bit         RAMs := 1     
++---ROMs : 
+	                              ROMs := 2     
++---Muxes : 
+	   8 Input     12 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 2     
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   3 Input      2 Bit        Muxes := 1     
+	  15 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 40    
+	   3 Input      1 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module detect_pos 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     11 Bit       Adders := 5     
+	   3 Input     10 Bit       Adders := 4     
+	   2 Input     10 Bit       Adders := 6     
+	   2 Input      9 Bit       Adders := 6     
++---Registers : 
+	                9 Bit    Registers := 3     
+	                8 Bit    Registers := 2     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	  15 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 30    
+Module memory_acess_matrix 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 2     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 2     
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+	   3 Input      1 Bit        Muxes := 1     
+Module memory_acess_image 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module mem_image 
+Detailed RTL Component Info : 
++---Registers : 
+	               12 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module mem_image__parameterized1 
+Detailed RTL Component Info : 
++---Registers : 
+	               12 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module color_gradient 
+Detailed RTL Component Info : 
++---Registers : 
+	               12 Bit    Registers := 1     
+Module mux_pixel 
+Detailed RTL Component Info : 
++---Muxes : 
+	   8 Input     12 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+Module alpha_canal 
+Detailed RTL Component Info : 
++---Registers : 
+	               12 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     12 Bit        Muxes := 1     
+Module VGA_bitmap_320x200 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     16 Bit       Adders := 1     
+	   2 Input     12 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 1     
++---Registers : 
+	               12 Bit    Registers := 3     
+	               10 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
+	                1 Bit    Registers := 4     
++---RAMs : 
+	             750K Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     12 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 4     
+Module cmp_x_y 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module universal_delay 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 1     
+Module universal_delay__parameterized1 
+Detailed RTL Component Info : 
++---Registers : 
+	               12 Bit    Registers := 2     
+Module universal_delay__parameterized3 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 4     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'affichage/det/s_off_p_reg[8:0]' into 'affichage/det/s_off_x_e_reg[8:0]' [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:81]
+WARNING: [Synth 8-6014] Unused sequential element affichage/det/s_off_p_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/detect_pos.vhd:81]
+INFO: [Synth 8-5546] ROM "affichage/vga/VGA_hs" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "affichage/vga/v_counter" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "affichage/vga/VGA_vs" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "affichage/vga/TOP_display" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "affichage/vga/TOP_line" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "affichage/cmpx_y/comp_y" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element affichage/mem_player/data_out_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/mem_image.vhd:79]
+WARNING: [Synth 8-6014] Unused sequential element affichage/mem_enemies/data_out_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/mem_image.vhd:79]
+WARNING: [Synth 8-6014] Unused sequential element affichage/mem_acess_e/cmp_y_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/memory_acess_matrix.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element affichage/mem_acess_p/cmp_y_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/memory_acess_image.vhd:58]
+WARNING: [Synth 8-6014] Unused sequential element affichage/vga/pix_read_addr_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/vga_bitmap_320x200.vhd:67]
+WARNING: [Synth 8-6014] Unused sequential element affichage/cmpx_y/comp_y_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/cmp_x_y.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element affichage/cmpx_y/saddr_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/cmp_x_y.vhd:61]
+WARNING: [Synth 8-6014] Unused sequential element affichage/vga/data_out_reg was removed.  [D:/GitHub/space_invaders_VHDL/srcs/sources_1/new/vga_bitmap_320x200.vhd:68]
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_y_e_reg[0]' (FDC) to 'affichage/delay_mult/data_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_x_e_reg[0]' (FDC) to 'affichage/delay_mult/data_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_y_e_reg[1]' (FDC) to 'affichage/det/s_off_y_e_reg[5]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_y_e_reg[2]' (FDC) to 'affichage/delay_mult/data_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_y_e_reg[7]' (FDC) to 'affichage/delay_mult/data_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_y_e_reg[5]' (FDC) to 'affichage/det/s_off_y_e_reg[4]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_y_e_reg[3]' (FDC) to 'affichage/delay_mult/data_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_y_e_reg[4]' (FDC) to 'affichage/det/s_off_x_e_reg[2]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_y_e_reg[6]' (FDC) to 'affichage/delay_mult/data_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_x_e_reg[1]' (FDC) to 'affichage/delay_mult/data_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_x_e_reg[2]' (FDC) to 'affichage/det/s_off_x_e_reg[5]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_x_e_reg[8]' (FDC) to 'affichage/delay_mult/data_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_x_e_reg[7]' (FDC) to 'affichage/delay_mult/data_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_x_e_reg[5]' (FDC) to 'affichage/det/s_off_x_e_reg[6]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_x_e_reg[4]' (FDC) to 'affichage/delay_mult/data_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'affichage/det/s_off_x_e_reg[3]' (FDC) to 'affichage/delay_mult/data_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'affichage/delay_mult/data_out_reg[3]' (FDC) to 'affichage/delay_mult/data_out_reg[2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\affichage/delay_mult/data_out_reg[2] )
+WARNING: [Synth 8-3332] Sequential element (affichage/delay_mult/data_out_reg[2]) is unused and will be removed from module test_module_affichage.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++----------------------+------------------------------------+---------------+----------------+
+|Module Name           | RTL Object                         | Depth x Width | Implemented As | 
++----------------------+------------------------------------+---------------+----------------+
+|mem_image             | data_out_reg                       | 512x12        | Block RAM      | 
+|mem_image             | data_out_reg                       | 256x12        | Block RAM      | 
+|test_module_affichage | affichage/mem_enemies/data_out_reg | 256x12        | Block RAM      | 
+|test_module_affichage | affichage/mem_player/data_out_reg  | 512x12        | Block RAM      | 
++----------------------+------------------------------------+---------------+----------------+
+
+
+Block RAM: Preliminary Mapping  Report (see note below)
++--------------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name         | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++--------------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|VGA_bitmap_320x200: | screen_reg | 64 K x 12(READ_FIRST)  | W | R | 64 K x 12(WRITE_FIRST) |   | R | Port A and B     | 0      | 24     | 
++--------------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The tale above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping  Report
++--------------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name         | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++--------------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|VGA_bitmap_320x200: | screen_reg | 64 K x 12(READ_FIRST)  | W | R | 64 K x 12(WRITE_FIRST) |   | R | Port A and B     | 0      | 24     | 
++--------------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4480] The timing for the instance affichage/mem_enemies/data_out_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance affichage/mem_player/data_out_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:50 ; elapsed = 00:00:53 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++----------------------+---------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name           | RTL Name                              | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++----------------------+---------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|test_module_affichage | affichage/delay_addr/data_out_reg[15] | 4      | 16    | YES          | NO                 | YES               | 16     | 0       | 
++----------------------+---------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |BUFG       |     1|
+|2     |CARRY4     |    56|
+|3     |LUT1       |    56|
+|4     |LUT2       |   118|
+|5     |LUT3       |    58|
+|6     |LUT4       |    20|
+|7     |LUT5       |    28|
+|8     |LUT6       |    51|
+|9     |RAMB18E1   |     1|
+|10    |RAMB18E1_1 |     1|
+|11    |RAMB36E1   |    12|
+|12    |RAMB36E1_2 |    12|
+|13    |SRL16E     |    16|
+|14    |FDCE       |    89|
+|15    |FDRE       |   128|
+|16    |IBUF       |     2|
+|17    |OBUF       |    14|
++------+-----------+------+
+
+Report Instance Areas: 
++------+-----------------+--------------------------------+------+
+|      |Instance         |Module                          |Cells |
++------+-----------------+--------------------------------+------+
+|1     |top              |                                |   663|
+|2     |  affichage      |module_affichage                |   646|
+|3     |    cmpx_y       |cmp_x_y                         |    64|
+|4     |    delay_addr   |universal_delay__parameterized3 |    67|
+|5     |    delay_data_b |universal_delay__parameterized1 |    24|
+|6     |    delay_mult   |universal_delay                 |     2|
+|7     |    det          |detect_pos                      |   217|
+|8     |    gradient     |color_gradient                  |    34|
+|9     |    mem_acess_e  |memory_acess_matrix             |    24|
+|10    |    mem_acess_p  |memory_acess_image              |    20|
+|11    |    mem_enemies  |mem_image__parameterized1       |    20|
+|12    |    mem_player   |mem_image                       |     1|
+|13    |    transparence |alpha_canal                     |    12|
+|14    |    vga          |VGA_bitmap_320x200              |   161|
++------+-----------------+--------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 716.434 ; gain = 465.441
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 17 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:31 ; elapsed = 00:00:44 . Memory (MB): peak = 716.434 ; gain = 155.176
+Synthesis Optimization Complete : Time (s): cpu = 00:00:52 ; elapsed = 00:00:54 . Memory (MB): peak = 716.434 ; gain = 465.441
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 84 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+111 Infos, 18 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:53 ; elapsed = 00:00:57 . Memory (MB): peak = 716.434 ; gain = 477.965
+INFO: [Common 17-1381] The checkpoint 'D:/GitHub/space_invaders_VHDL/space_invader_VHDL.runs/synth_1/test_module_affichage.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file test_module_affichage_utilization_synth.rpt -pb test_module_affichage_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.141 . Memory (MB): peak = 716.434 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Dec 17 14:32:04 2017...

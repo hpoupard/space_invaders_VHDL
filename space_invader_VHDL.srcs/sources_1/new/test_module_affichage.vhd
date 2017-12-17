@@ -65,7 +65,7 @@ component module_affichage is
                 IMG_PLAYER  : string := "images/player.bin";
                 IMG_ENEMIES : string := "images/enemies.bin";
                 TEST_MODE   : boolean := false;
-                TOGGLE_BACKGROUND : boolean := false;
+                TEST_BACKGROUND : boolean := false;
                 COLOR_TRANS : integer range 0 to 4095 := 3855);
     Port (      clk : in STD_LOGIC;
                 reset : in STD_LOGIC;
@@ -102,7 +102,7 @@ Generic map (
     ROW_E   => 4,
     LINE_E  => 4,
     TEST_MODE => false,
-    TOGGLE_BACKGROUND => true)
+    TEST_BACKGROUND => true)
 Port map (      
     clk => clk,
     reset => reset,

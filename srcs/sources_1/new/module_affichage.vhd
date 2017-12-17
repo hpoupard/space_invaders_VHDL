@@ -53,7 +53,7 @@ entity module_affichage is
                 IMG_PLAYER  : string := "images/player.bin";
                 IMG_ENEMIES : string := "images/enemies.bin";
                 TEST_MODE   : boolean := false;
-                TOGGLE_BACKGROUND : boolean := true;
+                TEST_BACKGROUND : boolean := false;
                 COLOR_TRANS : integer range 0 to 4095 := 3855);
     Port (      clk : in STD_LOGIC;
                 reset : in STD_LOGIC;
@@ -199,6 +199,18 @@ component universal_delay is
            data_out : out STD_LOGIC_VECTOR (SIZE_DATA-1 downto 0));
 end component;
 
+component color_gradient is
+    Generic (   SIZE_X  : integer range 1 to 12 := 8;
+                SIZE_Y  : integer range 1 to 12 := 8;
+                BITS_PER_PIXEL : integer range 1 to 12 := 12;
+                INCR    : integer range 1 to 1000 := 7);               
+    Port ( clk : in STD_LOGIC;
+           reset : in STD_LOGIC;
+           pix_x : in STD_LOGIC_VECTOR(SIZE_X-1 downto 0);
+           pix_y : in STD_LOGIC_VECTOR (SIZE_Y-1 downto 0);
+           data_out : out STD_LOGIC_VECTOR (BITS_PER_PIXEL-1 downto 0));
+end component;
+
 signal s_addr, sd_addr : STD_LOGIC_VECTOR(SIZE_ADDR - 1 downto 0);  -- Signal contenant l'adresse du bit a afficher
 signal pix_x : STD_LOGIC_VECTOR(SIZE_X - 1 downto 0);               -- Signal des coordonne en pixel
 signal pix_y : STD_LOGIC_VECTOR(SIZE_Y - 1 downto 0);              
@@ -300,23 +312,39 @@ Port map (
     addr_x      => x_e,
     addr_y      => y_e,
     data_out    => data_e);
-        
-mem_background : mem_image
-Generic map (
-    BITS_PER_COLOR  => BITS_PER_PIXEL/3,
-    MEM_X           => SIZE_X,
-    MEM_Y           => SIZE_Y,
-    SIZE_X          => SCREEN_X,
-    SIZE_Y          => SCREEN_Y,
-    IMAGE_NAME      => IMG_BACK,
-    TEST_MODE       => TOGGLE_BACKGROUND,
-    TEST_COLOR      => 0)
-Port map (
-    clk         => clk,
-    addr_x      => pix_x,
-    addr_y      => pix_y,
-    data_out    => data_b);
-    
+
+
+
+gradient : color_gradient
+Generic map ( 
+    SIZE_X  => SIZE_X,
+    SIZE_Y  => SIZE_Y,
+    BITS_PER_PIXEL => BITS_PER_PIXEL,
+    INCR            => 7)            
+Port map ( 
+    clk => clk,
+    reset => reset,
+    pix_x => pix_x,
+    pix_y => pix_y,
+    data_out => data_b);
+
+--mem_background : mem_image
+--Generic map (
+--    BITS_PER_COLOR  => BITS_PER_PIXEL/3,
+--    MEM_X           => SIZE_X,
+--    MEM_Y           => SIZE_Y,
+--    SIZE_X          => SCREEN_X,
+--    SIZE_Y          => SCREEN_Y,
+--    IMAGE_NAME      => IMG_BACK,
+--    TEST_MODE       => TEST_BACKGROUND,
+--    TEST_COLOR      => 0)
+--Port map (
+--    clk         => clk,
+--    addr_x      => pix_x,
+--    addr_y      => pix_y,
+--    data_out    => data_b);
+
+
 multiplex : mux_pixel
 Generic map (
     BITS_PER_PIXEL  => BITS_PER_PIXEL,
