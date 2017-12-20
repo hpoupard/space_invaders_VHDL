@@ -93,6 +93,13 @@ component VGA_bitmap_320x200 is
        data_out     : out std_logic_vector(bit_per_pixel - 1 downto 0));
 end component;
 
+component clk_module is
+    Generic (   NMB_CLK : integer range 1 to 100000000);
+    Port (      clk     : in STD_LOGIC;
+                reset   : in STD_LOGIC;
+                clk_out : out STD_LOGIC);
+end component;
+
 component detect_pos is
     Generic (   SIZE_X  : integer range 1 to 10 := 9;
                 SIZE_Y  : integer range 1 to 10 := 8;
@@ -108,6 +115,7 @@ component detect_pos is
                 ROW_E   : integer range 1 to 30 := 4;
                 LINE_E  : integer range 1 to 30 := 4);       
     Port (      clk     : in STD_LOGIC;
+                clk_frame : in STD_LOGIC;
                 reset   : in STD_LOGIC;
                 pix_x   : in STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
                 pix_y   : in STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0);
@@ -235,9 +243,17 @@ signal data_e, data_p, data_b, ddata_b, data_out, data_vga : STD_LOGIC_VECTOR(BI
 
 signal smux, d_smux : STD_LOGIC_VECTOR(3 downto 0);
 
-signal incr_e, incr_p : STD_LOGIC;
+signal incr_e, incr_p, clk_frame : STD_LOGIC;
 
 begin
+
+clock : clk_module
+Generic map (
+    NMB_CLK => SCREEN_X*SCREEN_Y - 1)
+Port map (
+    clk => clk,
+    reset => reset,
+    clk_out => clk_frame);
 
 det : detect_pos
 Generic map (
@@ -256,6 +272,7 @@ Generic map (
     LINE_E      => LINE_E)
 Port map (
     clk     => clk,
+    clk_frame => clk_frame,
     reset   => reset,
     pix_x   => pix_x,
     pix_y   => pix_y,
