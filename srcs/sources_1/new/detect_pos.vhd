@@ -46,7 +46,8 @@ entity detect_pos is
                 ROW_E   : integer range 1 to 30 := 4;
                 LINE_E  : integer range 1 to 30 := 4);       
     Port (      clk     : in STD_LOGIC;
-                clk_frame : in STD_LOGIC;
+                --clk_frame : in STD_LOGIC;
+                addr : STD_LOGIC_VECTOR(15 downto 0);
                 reset   : in STD_LOGIC;
                 pix_x   : in STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
                 pix_y   : in STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0);
@@ -85,13 +86,14 @@ begin
         s_off_x_e   <= 0;
         s_off_y_e   <= 0;
         s_off_p     <= 0;
-        s_tir_x <= 0;
-        s_tir_y <= 0;
+        s_tir_x     <= 0;
+        s_tir_y     <= 0;
         s_alive     <= std_logic_vector(to_unsigned(0, ROW_E*LINE_E));
     elsif rising_edge(clk) then
-        if clk_frame = '1' then
-            s_x         <= to_integer(unsigned(pix_x));
-            s_y         <= to_integer(unsigned(pix_y));
+        s_x <= to_integer(unsigned(pix_x));
+        s_y <= to_integer(unsigned(pix_y));
+        
+        if addr = std_logic_vector(to_unsigned(0, 16)) then
             s_off_x_e   <= to_integer(unsigned(off_x_e));
             s_off_y_e   <= to_integer(unsigned(off_y_e));
             s_off_p     <= to_integer(unsigned(off_p));
@@ -124,7 +126,7 @@ begin
 end process synchrone;
 
 --Detection de l'image a afficher
-asynchrone : process(s_x, s_y, s_off_p, s_off_x_e, s_off_y_e, alive)
+asynchrone : process(s_x, s_y, s_off_p, s_off_x_e, s_off_y_e, alive, tir, s_tir_x, s_tir_y)
     variable det_enemies : boolean := false;
     variable det_enemies_alive : boolean := false;
     variable det_player : boolean := false;
