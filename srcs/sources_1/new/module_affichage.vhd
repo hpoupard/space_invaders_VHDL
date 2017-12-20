@@ -42,6 +42,9 @@ entity module_affichage is
                 TAILLE_E_Y  : integer range 1 to 128 := 16;
                 TAILLE_P_X  : integer range 1 to 128 := 16;
                 TAILLE_P_Y  : integer range 1 to 128 := 16;
+                TAILLE_TIR_X : integer range 1 to 16 := 2;
+                TAILLE_TIR_Y : integer range 1 to 16 := 2;
+                COLOR_SHOT  : integer range 0 to 4095 := 4095;
                 SIZE_E_X  : integer range 1 to 8 := 4;
                 SIZE_E_Y  : integer range 1 to 8 := 4;
                 SIZE_P_X  : integer range 1 to 8 := 4;
@@ -61,6 +64,9 @@ entity module_affichage is
                 off_x_e : in STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
                 off_y_e : in STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0);
                 alive : in STD_LOGIC_VECTOR (ROW_E*LINE_E - 1 downto 0);
+                tir     : in STD_LOGIC;
+                tir_x   : in STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
+                tir_y   : in STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0);
                 red : out STD_LOGIC_VECTOR(BITS_PER_PIXEL/3 - 1 downto 0);
                 green : out STD_LOGIC_VECTOR(BITS_PER_PIXEL/3 - 1 downto 0);
                 blue : out STD_LOGIC_VECTOR(BITS_PER_PIXEL/3 - 1 downto 0);
@@ -96,6 +102,8 @@ component detect_pos is
                 TAILLE_E_Y  : integer range 1 to 128 := 16;
                 TAILLE_P_X  : integer range 1 to 128 := 16;
                 TAILLE_P_Y  : integer range 1 to 128 := 16;
+                TAILLE_TIR_X : integer range 1 to 16 := 2;
+                TAILLE_TIR_Y : integer range 1 to 16 := 2;
                 INTER   : integer range 1 to 128 := 8;
                 ROW_E   : integer range 1 to 30 := 4;
                 LINE_E  : integer range 1 to 30 := 4);       
@@ -107,6 +115,9 @@ component detect_pos is
                 off_x_e : in STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
                 off_y_e : in STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0);
                 alive   : in STD_LOGIC_VECTOR (ROW_E*LINE_E - 1 downto 0);
+                tir     : in STD_LOGIC;
+                tir_x   : in STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
+                tir_y   : in STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0);
                 incr_p  : out STD_LOGIC;
                 incr_e  : out STD_LOGIC;
                 mult    : out STD_LOGIC_VECTOR (3 downto 0));
@@ -238,6 +249,8 @@ Generic map (
     TAILLE_E_Y  => TAILLE_E_Y,
     TAILLE_P_X  => TAILLE_P_X,
     TAILLE_P_Y  => TAILLE_P_Y,
+    TAILLE_TIR_X => 2,
+    TAILLE_TIR_Y => 2,
     INTER       => INTER,
     ROW_E       => ROW_E,
     LINE_E      => LINE_E)
@@ -250,6 +263,9 @@ Port map (
     off_x_e => off_x_e,
     off_y_e => off_y_e,
     alive   => alive,
+    tir => tir,
+    tir_x => tir_x,
+    tir_y => tir_y,
     incr_p  => incr_p,
     incr_e  => incr_e,
     mult    => smux);
@@ -352,7 +368,7 @@ Generic map (
 Port map (      
     data1   => data_p,
     data2   => data_e,
-    data3   => std_logic_vector(to_unsigned(COLOR_TRANS, BITS_PER_PIXEL)),
+    data3   => std_logic_vector(to_unsigned(COLOR_SHOT, BITS_PER_PIXEL)),
     data4   => std_logic_vector(to_unsigned(COLOR_TRANS, BITS_PER_PIXEL)),
     data5   => std_logic_vector(to_unsigned(COLOR_TRANS, BITS_PER_PIXEL)),
     data6   => std_logic_vector(to_unsigned(COLOR_TRANS, BITS_PER_PIXEL)),

@@ -40,6 +40,8 @@ entity detect_pos is
                 TAILLE_E_Y  : integer range 1 to 128 := 16;
                 TAILLE_P_X  : integer range 1 to 128 := 16;
                 TAILLE_P_Y  : integer range 1 to 128 := 16;
+                TAILLE_TIR_X : integer range 1 to 16 := 2;
+                TAILLE_TIR_Y : integer range 1 to 16 := 2;
                 INTER   : integer range 1 to 128 := 8;
                 ROW_E   : integer range 1 to 30 := 4;
                 LINE_E  : integer range 1 to 30 := 4);       
@@ -51,6 +53,9 @@ entity detect_pos is
                 off_x_e : in STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
                 off_y_e : in STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0);
                 alive   : in STD_LOGIC_VECTOR (ROW_E*LINE_E - 1 downto 0);
+                tir     : in STD_LOGIC;
+                tir_x   : in STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
+                tir_y   : in STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0);
                 incr_p  : out STD_LOGIC;
                 incr_e  : out STD_LOGIC;
                 mult    : out STD_LOGIC_VECTOR (3 downto 0));
@@ -58,14 +63,14 @@ end detect_pos;
 
 architecture Behavioral of detect_pos is
 
-    type state is (BACKGROUND, PLAYER, ENEMIES);
+    type state is (BACKGROUND, PLAYER, ENEMIES, SHOT);
     
     signal s_mult   : integer range 0 to 63;
     signal s_alive  : STD_LOGIC_VECTOR (ROW_E*LINE_E - 1 downto 0);
-    signal s_x, s_off_x_e, s_off_p  : integer range 0 to 2**SIZE_X-1;
-    signal s_y, s_off_y_e           : integer range 0 to 2**SIZE_Y-1;
+    signal s_x, s_off_x_e, s_off_p, s_tir_x  : integer range 0 to 2**SIZE_X-1;
+    signal s_y, s_off_y_e, s_tir_y           : integer range 0 to 2**SIZE_Y-1;
     signal etat : state;
-    signal senemies, salive, splayer : boolean;
+    signal senemies, salive, splayer, stir : boolean;
 
 begin
 
@@ -79,6 +84,8 @@ begin
         s_off_x_e   <= 0;
         s_off_y_e   <= 0;
         s_off_p     <= 0;
+        s_tir_x <= 0;
+        s_tir_y <= 0;
         s_alive     <= std_logic_vector(to_unsigned(0, ROW_E*LINE_E));
     elsif rising_edge(clk) then
         s_x         <= to_integer(unsigned(pix_x));
@@ -86,6 +93,8 @@ begin
         s_off_x_e   <= to_integer(unsigned(off_x_e));
         s_off_y_e   <= to_integer(unsigned(off_y_e));
         s_off_p     <= to_integer(unsigned(off_p));
+        s_tir_x     <= to_integer(unsigned(tir_x));
+        s_tir_y     <= to_integer(unsigned(tir_y));
         s_alive     <= alive;
         
         if salive = true then
@@ -99,7 +108,9 @@ begin
             incr_p <= '0';
         end if;
         
-        if senemies = true then
+        if stir = true then
+            etat <= SHOT;
+        elsif senemies = true then
             etat <= ENEMIES;
         elsif splayer = true then
             etat <= PLAYER;
@@ -121,6 +132,12 @@ begin
     
     if (s_x >= s_off_p and s_x < TAILLE_P_X + s_off_p) and (s_y >= SCREEN_Y - TAILLE_P_Y) then
         det_player := true;
+    end if;
+    
+    if (s_x >= s_tir_x and s_x < TAILLE_TIR_X + s_tir_x) and (s_y >= s_tir_y and s_y < s_tir_y + TAILLE_TIR_Y and tir = '1') then
+        stir <= true;
+    else
+        stir <= false;
     end if;
     
     for I in 0 to ROW_E-1 loop
@@ -159,9 +176,10 @@ end process asynchrone;
 fsm : process(etat)
 begin
     case(etat) is
-        when PLAYER =>  s_mult <= 1;
-        when ENEMIES => s_mult <= 2;
-        when others =>  s_mult <= 0;
+        when PLAYER     => s_mult <= 1;
+        when ENEMIES    => s_mult <= 2;
+        when SHOT       => s_mult <= 3;
+        when others     => s_mult <= 0;
     end case;
 end process fsm;
 
