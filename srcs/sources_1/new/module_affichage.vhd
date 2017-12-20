@@ -115,7 +115,6 @@ component detect_pos is
                 ROW_E   : integer range 1 to 30 := 4;
                 LINE_E  : integer range 1 to 30 := 4);       
     Port (      clk     : in STD_LOGIC;
-                --clk_frame : in STD_LOGIC;
                 addr    : in STD_LOGIC_VECTOR (15 downto 0);
                 reset   : in STD_LOGIC;
                 pix_x   : in STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
@@ -129,6 +128,7 @@ component detect_pos is
                 tir_y   : in STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0);
                 incr_p  : out STD_LOGIC;
                 incr_e  : out STD_LOGIC;
+                reset_cmp : out STD_LOGIC;
                 mult    : out STD_LOGIC_VECTOR (3 downto 0));
 end component;
 
@@ -181,6 +181,7 @@ component memory_acess_matrix is
     Port (      clk     : in STD_LOGIC;
                 reset   : in STD_LOGIC;
                 incr    : in STD_LOGIC;
+                reset_cmp : STD_LOGIC;
                 x       : out STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
                 y       : out STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0));
 end component;
@@ -193,6 +194,7 @@ component memory_acess_image is
     Port (      clk     : in STD_LOGIC;
                 reset   : in STD_LOGIC;
                 incr    : in STD_LOGIC;
+                reset_cmp : STD_LOGIC;
                 x       : out STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
                 y       : out STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0));
 end component;
@@ -244,7 +246,7 @@ signal data_e, data_p, data_b, ddata_b, data_out, data_vga : STD_LOGIC_VECTOR(BI
 
 signal smux, d_smux : STD_LOGIC_VECTOR(3 downto 0);
 
-signal incr_e, incr_p, clk_frame : STD_LOGIC;
+signal incr_e, incr_p, reset_cmp : STD_LOGIC;
 
 begin
 
@@ -286,6 +288,7 @@ Port map (
     tir_y => tir_y,
     incr_p  => incr_p,
     incr_e  => incr_e,
+    reset_cmp => reset_cmp,
     mult    => smux);
 
 mem_acess_e : memory_acess_matrix
@@ -299,6 +302,7 @@ Port map (
     clk     => clk,
     reset   => reset,
     incr    => incr_e,
+    reset_cmp => reset_cmp,
     x       => x_e,
     y       => y_e);
     
@@ -312,6 +316,7 @@ Port map (
     clk     => clk,
     reset   => reset,
     incr    => incr_p,
+    reset_cmp => reset_cmp,
     x       => x_p,
     y       => y_p);
     

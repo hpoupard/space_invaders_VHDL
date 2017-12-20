@@ -39,6 +39,7 @@ entity memory_acess_image is
     Port (      clk     : in STD_LOGIC;
                 reset   : in STD_LOGIC;
                 incr    : in STD_LOGIC;
+                reset_cmp : in STD_LOGIC;
                 x       : out STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
                 y       : out STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0));
 end memory_acess_image;
@@ -53,7 +54,7 @@ begin
 synchrone : process(clk)
 begin
     if rising_edge(clk) then
-        if reset = '0' then
+        if reset = '0' or reset_cmp = '1' then
             cmp_x <= 0;
             cmp_y <= 0;
         elsif incr = '1' then

@@ -46,7 +46,6 @@ entity detect_pos is
                 ROW_E   : integer range 1 to 30 := 4;
                 LINE_E  : integer range 1 to 30 := 4);       
     Port (      clk     : in STD_LOGIC;
-                --clk_frame : in STD_LOGIC;
                 addr : STD_LOGIC_VECTOR(15 downto 0);
                 reset   : in STD_LOGIC;
                 pix_x   : in STD_LOGIC_VECTOR (SIZE_X - 1 downto 0);
@@ -60,6 +59,7 @@ entity detect_pos is
                 tir_y   : in STD_LOGIC_VECTOR (SIZE_Y - 1 downto 0);
                 incr_p  : out STD_LOGIC;
                 incr_e  : out STD_LOGIC;
+                reset_cmp : out STD_LOGIC;
                 mult    : out STD_LOGIC_VECTOR (3 downto 0));
 end detect_pos;
 
@@ -80,6 +80,7 @@ begin
 synchrone : process(clk, reset)
 begin
     if reset = '0' then
+        reset_cmp   <= '0';
         etat        <= BACKGROUND;
         s_x         <= 0;
         s_y         <= 0;
@@ -94,12 +95,15 @@ begin
         s_y <= to_integer(unsigned(pix_y));
         
         if addr = std_logic_vector(to_unsigned(0, 16)) then
+            reset_cmp   <= '1';
             s_off_x_e   <= to_integer(unsigned(off_x_e));
             s_off_y_e   <= to_integer(unsigned(off_y_e));
             s_off_p     <= to_integer(unsigned(off_p));
             s_tir_x     <= to_integer(unsigned(tir_x));
             s_tir_y     <= to_integer(unsigned(tir_y));
             s_alive     <= alive;
+        else
+            reset_cmp <= '0';
         end if;
         
         if salive = true then
