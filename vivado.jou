@@ -1,0 +1,68 @@
+#-----------------------------------------------------------
+# Vivado v2015.2 (64-bit)
+# SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
+# IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
+# Start of session at: Wed Dec 13 08:07:55 2017
+# Process ID: 952
+# Log file: C:/Users/rfumeron/Documents/GitHub/space_invaders_VHDL/vivado.log
+# Journal file: C:/Users/rfumeron/Documents/GitHub/space_invaders_VHDL\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/rfumeron/Documents/GitHub/space_invaders_VHDL/space_invader_VHDL.xpr
+save_project_as VHDLQUOI C:/Users/rfumeron/Desktop/VHDLQUOI -force
+import_files
+file mkdir C:/Users/rfumeron/Desktop/VHDLQUOI/VHDLQUOI.srcs/sources_1/new
+close [ open C:/Users/rfumeron/Desktop/VHDLQUOI/VHDLQUOI.srcs/sources_1/new/detect_pos.vhd w ]
+add_files C:/Users/rfumeron/Desktop/VHDLQUOI/VHDLQUOI.srcs/sources_1/new/detect_pos.vhd
+update_compile_order -fileset sources_1
+close [ open C:/Users/rfumeron/Desktop/VHDLQUOI/VHDLQUOI.srcs/sources_1/new/module_affichage.vhd w ]
+add_files C:/Users/rfumeron/Desktop/VHDLQUOI/VHDLQUOI.srcs/sources_1/new/module_affichage.vhd
+update_compile_order -fileset sources_1
+close [ open C:/Users/rfumeron/Desktop/VHDLQUOI/VHDLQUOI.srcs/sources_1/new/module_affichage.vhd w ]
+add_files C:/Users/rfumeron/Desktop/VHDLQUOI/VHDLQUOI.srcs/sources_1/new/module_affichage.vhd
+add_files -norecurse C:/Users/rfumeron/Desktop/VHDLQUOI/VHDLQUOI.srcs/sources_1/new/vga_bitmap_320x200.vhd
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top module_affichage [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
